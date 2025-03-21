@@ -170,9 +170,12 @@ select cantClientes(1370);
 delimiter //
 create function funcion14(numero int)returns varchar(45) deterministic
 begin
-	declare apellido varchar(45) default "x";
-    select lastName into apellido from employees where numero=employeeNumber;
+	declare jefe int;
+	declare apellido varchar(45);
+    select reportsTo into jefe from employees where numero=employeeNumber;
+    select lastName into apellido from employees where jefe=employeeNumber;
     return apellido;
 end//
 delimiter ;
-select funcion14("1002");
+select funcion14("1102");
+drop function funcion14;
