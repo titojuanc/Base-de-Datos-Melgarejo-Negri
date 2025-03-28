@@ -1,4 +1,4 @@
-/*9*/
+/*9*////
 
 delimiter //
 create procedure CiudadesConOFicinas(out ciudades varchar(4000))
