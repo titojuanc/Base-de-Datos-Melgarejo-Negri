@@ -166,3 +166,31 @@ end//
 
 call cargarComision();
 
+/*14*/
+delimiter //
+create procedure asignarEmpleado()
+begin
+	declare hayFilas boolean default true;
+    declare empleadoNumero int default 0;
+    declare clienteActual int default 0;
+    declare empleadoMenorClientes int;
+    declare cursorClientes cursor for select salesRepEmployeeNumber, customerNumber from customers;
+    declare continue handler for not found set hayFilas=false;
+    open cursorClientes;
+    set empleadoMenorCLientes = (select salesRepEmployeeNumber from customers group by (salesRepEmployeeNumber) order by (count(salesRepEmployeeNumber)) asc limit 1 offset 1);
+    bucle:loop
+		fetch cursorClientes into empleadoNumero, clienteActual;
+        if (NOT hayFilas) then
+			 leave bucle;
+		end if;
+        if (empleadoNumero is null) then
+			update customers set salesRepEmployeeNumber=empleadoMenorClientes where customerNumber=clienteActual;
+        end if;  
+        end loop bucle;
+	close cursorClientes;
+end//
+delimiter ;
+
+call asignarEmpleado;
+drop procedure asignarEmpleado;
+
