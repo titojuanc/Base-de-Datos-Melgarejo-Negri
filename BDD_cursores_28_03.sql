@@ -1,3 +1,19 @@
+/*Ej8*/
+delimiter //
+create procedure Ej8(out ej8_1 int, in orden int, in coment text)
+begin
+	select count(*) into ej8_1 from orders where orderNumber=orden;
+    if ej8_1 != 0 then
+		update orders set comments = coment where orderNumber=orden;
+        set ej8_1=1;
+        select ej8_1;
+	else
+		select ej8_1;
+	end if;
+end//
+delimiter ;
+call Ej8(@ej8_1, 10102, "Tito");
+
 /*9*////
 
 delimiter //
@@ -26,7 +42,43 @@ drop procedure CiudadesConOficinas;
 set @ciudadesConOficinas="";
 call CiudadesConOficinas(@ciudadesConOficinas);
 select @ciudadesConOFicinas;
-        
+
+/*Ej 10*/
+create table CancelledOrders(
+	orderNumber int primary key,
+    orderDate date,
+    shippedDate date,
+    customerNumber int,
+    foreign key (customerNumber) References customers (customerNumber)
+);
+ 
+delimiter //
+create procedure insertCancelledOrders(out ordenesCanceladas int)
+begin
+	declare salir boolean default 0;
+    declare num, cnum int default 0;
+    declare orderD, shippedD date;
+    declare cursorOrders cursor for select orderNumber, orderDate, shippedDate, customerNumber from orders where status="Cancelled";
+    declare continue handler for not found set salir=1;
+    open cursorOrders;
+    recorrer:loop
+		fetch cursorOrders into num, orderD, shippedD, cnum;
+        if salir=1 then
+			leave recorrer;
+		end if;
+		insert into CancelledOrders (orderNumber, orderDate, shippedDate, customerNumber) values(num, orderD, shippedD, cnum);
+	end loop recorrer;
+    close cursorOrders;
+    select count(*) into ordenesCanceladas from CancelledOrders;
+end//
+delimiter ;
+ 
+call insertCancelledOrders(@ordenesCanceladas);
+select @ordenesCanceladas;
+ 
+drop procedure insertCancelledOrders;
+drop table CancelledOrders;
+
 /*11*/
 delimiter //
 create procedure anotarTotal(in cliente int)
@@ -56,6 +108,33 @@ call anotarTotal(121);
 
 select sum(priceEach*quantityOrdered), salesRepEmployeeNumber from customers join orders on customers.customerNumber=orders.customerNumber join orderdetails on orders.orderNumber=orderdetails.orderNumber group by (salesRepEmployeeNumber);
 
+/*Ej 12*/
+delimiter //
+create procedure telefonosClientesOrdenesCanceladas(out num int, out telefono varchar(45), out lista text)
+begin
+	declare salir boolean default 0;
+    declare ultimaFecha, telUltimaFecha date;
+	declare cursorClientesOrdenesCanceladas cursor for select orders.customerNumber, phone, max(shippedDate) from customers join orders on customers.customerNumber=orders.customerNumber where status="Cancelled" group by orders.customerNumber;
+	declare continue handler for not found set salir=1;
+    select max(shippedDate) into ultimaFecha from orders where status="Shipped";
+    open cursorClientesOrdenesCanceladas;
+    recorrer:loop
+		fetch cursorClientesOrdenesCanceladas into num, telefono, telUltimaFecha;
+        if salir=1 then
+			leave recorrer;
+		end if;
+        if telUltimaFecha>ultimaFecha then
+			set lista = concatws(",", num, telefono, telUltimaFecha, lista);
+        end if;
+	end loop recorrer;
+    close cursorClientesOrdenesCanceladas;
+end//
+delimiter ;
+call telefonosClientesOrdenesCanceladas(@num, @telefono, @lista);
+select @num, @telefono, @lista;
+ 
+drop procedure telefonosClientesOrdenesCanceladas;
+
 /*13*/
 alter table employees
 add commission text;
@@ -84,7 +163,6 @@ begin
 	end loop bucle;
     close cursorCliente;
 end//
-
 
 call cargarComision();
 
