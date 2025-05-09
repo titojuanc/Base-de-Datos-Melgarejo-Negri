@@ -114,3 +114,34 @@ delimiter ;
 
 call actualizarProductoPendientePago();
 drop procedure actualizarProductoPendientePago;
+
+/*6*/
+delimiter //
+create procedure actualizarPrecioPorProveedoresUnidadesVendidas(in porcentaje float, out rta text) begin
+	declare salir boolean default 0;
+    declare precio_prom_prov float default 0;
+    declare unidades_vendidas int default 0;
+    declare cod_c int default 0;
+    declare valorA float default 0;
+	declare valorN float default 0;
+    declare cursorPrecioUnidadesCodigoProducto cursor for select avg(precio), Producto_codProducto from producto_proveedor group by Producto_codProducto;
+    declare continue handler for not found set salir =1;
+    open cursorPrecioUnidadesCodigoProducto;
+    bucle:loop
+    fetch cursorPrecioUnidadesCodigoProducto into precio_prom_prov, cod_c;
+    if salir then
+		leave bucle;
+	end if;
+    select cantidad into unidades_vendidas from pedido_producto join pedido on Pedido_idPedido = idPedido where fecha >=current_date()-interval 1 month and Producto_codProducto=cod_c;
+    select precio into valorA from producto where codProducto=cod_c;
+    update producto set precio = precio_prom_prov + porcentaje * unidades_vendidas where codProducto=cod_c;
+    select precio into valorN from producto where codProducto=cod_c;
+    set rta = concat(cod_c, valorA, "->",valorN);
+    end loop bucle;
+    close cursorPrecioUnidadesCodigoProducto;
+end //
+delimiter ;
+call actualizarPrecioPorProveedoresUnidadesVendidas(0.40, @rta);
+select @rta;
+    
+    
