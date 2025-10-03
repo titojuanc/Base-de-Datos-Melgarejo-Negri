@@ -9,3 +9,30 @@ TP_Restaurante_G4> db.Restaurante.aggregate([{$lookup:{from: "Menues", localFiel
 /*Fran, ejecutá la 5 para que se agregue el campo*/
 /*5*/
 db.Restaurante.updateMany({}, {$set: {ultima_actualizacion: "$$NOW"}})
+
+/*Agregá un descuento del 10%, no hay uno con la base que tenemos subida (tuve que agregar acá en casa) */
+/*este solo agarra el descuento, no el nombre. Para conseguirlo habría que hacer un agregate con llokup, unwind y match*/
+/*6*/
+db.Descuentos.find({"descuentos.porcentaje": 10})
+
+
+/*7*/
+/*acá lo logré hacer, pero se podría agregar un unwind también)*/
+db.Restaurante.aggregate([
+  {$lookup: {
+      from: "Descuentos",
+      localField: "id_restaurante",
+      foreignField: "id_restaurante",
+      as: "descuentos"
+    }
+  },
+  {$match: {"descuentos.descuentos.porcentaje": 10}},
+  {$project: {_id:0, nombre: 1}}
+])
+
+/*8*/
+db.Restaurante.updateMany(
+  {$or: [{ "servicios_adicionales.delivery": true } ]},
+  {$set: { "horario.0": 11 }}
+)
+
