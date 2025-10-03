@@ -1,3 +1,6 @@
+// El monto final debería poder actualizarse cada vez que se hace un insert
+// con algún trigger de la base de datos. Sino, deberpia calcularse manualmente.
+
 [{
   "_id": {
     "$oid": "68dfe1879151ad6957525705"
