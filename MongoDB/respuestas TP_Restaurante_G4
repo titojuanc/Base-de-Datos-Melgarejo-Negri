@@ -6,6 +6,6 @@ TP_Restaurante_G4> db.Restaurante.aggregate([{$match:{"servicios_adicionales.del
 
 TP_Restaurante_G4> db.Restaurante.aggregate([{$lookup:{from: "Menues", localField: "id_restaurante", foreignField: "id_restaurante", as: "menu"}},{$unwind: "$menu"}, {$unwind : "$menu.platos"}, {$unwind: "$menu.platos.apto_para"},{$match: {"menu.platos.apto_para": "vegano", "servicios_adicionales.delivery": true, "servicios_adicionales.pet_friendly": true}}])
 
+/*Fran, ejecutá la 5 para que se agregue el campo*/
 /*5*/
-
 db.Restaurante.updateMany({}, {$set: {ultima_actualizacion: "$$NOW"}})
