@@ -1,0 +1,112 @@
+[{
+  "_id": {
+    "$oid": "68cd3d689c076ad8d75efc33"
+  },
+  "nombre": "Pin pun",
+  "direccion": "La pampa 4321",
+  "horario": [
+    12,
+    22
+  ],
+  "metodo_de_pago": [
+    "mercadopago",
+    "debito"
+  ],
+  "servicios_adicionales": {
+    "catering": true,
+    "estacionamiento": false,
+    "eventos_privados": false,
+    "show_en_vivo": true,
+    "pet_friendly": true,
+    "delivery": true
+  },
+  "id_restaurante": 1,
+  "ultima_actualizacion": {
+    "$date": "2025-10-03T14:11:03.571Z"
+  },
+  "contacto_telefono": 23456789
+},
+{
+  "_id": {
+    "$oid": "68cd41549c076ad8d75efc36"
+  },
+  "nombre": "Don Emilio",
+  "direccion": "Av Constituyentes 5880",
+  "horario": [
+    11,
+    23
+  ],
+  "metodo_de_pago": [
+    "debito",
+    "efectivo",
+    "credito"
+  ],
+  "servicios_adicionales": {
+    "catering": false,
+    "estacionamiento": false,
+    "eventos_privados": false,
+    "show_en_vivo": true,
+    "pet_friendly": true,
+    "delivery": false
+  },
+  "id_restaurante": 2,
+  "ultima_actualizacion": {
+    "$date": "2025-10-03T14:11:03.571Z"
+  },
+  "contacto_telefono": 987654321
+},
+{
+  "_id": {
+    "$oid": "68cd41f59c076ad8d75efc39"
+  },
+  "nombre": "Lo de Tito",
+  "direccion": "Albarellos 4248",
+  "horario": [
+    9,
+    21
+  ],
+  "metodo_de_pago": [
+    "mercadopago",
+    "efectivo"
+  ],
+  "servicios_adicionales": {
+    "catering": true,
+    "estacionamiento": false,
+    "eventos_privados": true,
+    "show_en_vivo": false,
+    "pet_friendly": false,
+    "delivery": true
+  },
+  "id_restaurante": 3,
+  "ultima_actualizacion": {
+    "$date": "2025-10-03T14:11:03.571Z"
+  },
+  "contacto_telefono": 12349876
+},
+{
+  "_id": {
+    "$oid": "68cd43b19c076ad8d75efc41"
+  },
+  "nombre": "Restaurante Royale",
+  "direccion": "Av. Baby Dragon 2016",
+  "horario": [
+    12,
+    18
+  ],
+  "metodo_de_pago": [
+    "efectivo"
+  ],
+  "servicios_adicionales": {
+    "catering": true,
+    "estacionamiento": true,
+    "eventos_privados": true,
+    "show_en_vivo": true,
+    "pet_friendly": false,
+    "delivery": false
+  },
+  "id_restaurante": 4,
+  "ultima_actualizacion": {
+    "$date": "2025-10-03T14:11:03.571Z"
+  },
+  "contacto_telefono": 432213456
+}]

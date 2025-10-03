@@ -1,0 +1,112 @@
+[{
+  "_id": {
+    "$oid": "68cd58bc9c076ad8d75efc80"
+  },
+  "id_restaurante": 1,
+  "eventos": [
+    {
+      "nombre": "Musica en vivo",
+      "descripcion": "2x1 en cervezas",
+      "fecha": "20/09/2025",
+      "hora": [
+        22,
+        23
+      ],
+      "reserva": false
+    },
+    {
+      "nombre": "noche de pizza",
+      "descripcion": "menú de pizzas exóticas",
+      "fecha": "14/10/2025",
+      "hora": [
+        18,
+        23
+      ],
+      "reserva": false
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68cd5f6c9c076ad8d75efc81"
+  },
+  "id_restaurante": 2,
+  "eventos": [
+    {
+      "nombre": "Rainbow Six Siege",
+      "descripcion": "Se convierte en cyber",
+      "fecha": "30/02/2039",
+      "hora": [
+        20,
+        22
+      ],
+      "reserva": true
+    },
+    {
+      "nombre": "Barcemoda",
+      "descripcion": "Ver el clasico con el Madrid",
+      "fecha": "14/10/2025",
+      "hora": [
+        18,
+        23
+      ],
+      "reserva": false
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68cd5fb79c076ad8d75efc82"
+  },
+  "id_restaurante": 3,
+  "eventos": [
+    {
+      "nombre": "happy hour",
+      "descripcion": "2x1 en cervezas",
+      "fecha": "30/02/2025",
+      "hora": [
+        20,
+        21
+      ],
+      "reserva": false
+    },
+    {
+      "nombre": "Barcemoda",
+      "descripcion": "Ver el clasico con el Madrid",
+      "fecha": "14/10/2025",
+      "hora": [
+        18,
+        23
+      ],
+      "reserva": false
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68cd606c9c076ad8d75efc83"
+  },
+  "id_restaurante": 4,
+  "eventos": [
+    {
+      "nombre": "Clash Royale",
+      "descripcion": "Torneos con recompensas alimenticias",
+      "fecha": "4/08/2025",
+      "hora": [
+        17,
+        21
+      ],
+      "reserva": true
+    },
+    {
+      "nombre": "PanchoYa",
+      "descripcion": "¿Quien come un pancho mas rapido?",
+      "fecha": "14/10/2025",
+      "hora": [
+        18,
+        23
+      ],
+      "reserva": false
+    }
+  ]
+}]

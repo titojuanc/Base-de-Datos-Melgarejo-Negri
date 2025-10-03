@@ -1,0 +1,62 @@
+[{
+  "_id": {
+    "$oid": "68cd62179c076ad8d75efc8a"
+  },
+  "id_restaurante": 1,
+  "descuentos": [
+    {
+      "motivo": "cerveza",
+      "fecha_inicio": "20/09/2025",
+      "fecha_fin": "30/09/2025",
+      "porcentaje": 40
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68cd62b89c076ad8d75efc8b"
+  },
+  "id_restaurante": 2,
+  "descuentos": [
+    {
+      "motivo": "La Scaloneta",
+      "fecha_inicio": "01/09/2025",
+      "fecha_fin": "30/09/2025",
+      "porcentaje": 15
+    },
+    {
+      "motivo": "Nuevo motivo",
+      "fecha_inicio": "05/05/2025",
+      "fecha_fin": "10/10/2025",
+      "porcentaje": 25
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68cd62f59c076ad8d75efc8d"
+  },
+  "id_restaurante": 3,
+  "descuentos": [
+    {
+      "motivo": "Aniversario",
+      "fecha_inicio": "20/10/2025",
+      "fecha_fin": "21/10/2025",
+      "porcentaje": 50
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68cd63279c076ad8d75efc8f"
+  },
+  "id_restaurante": 4,
+  "descuentos": [
+    {
+      "motivo": "PassRoyale",
+      "fecha_inicio": "01/12/2025",
+      "fecha_fin": "07/12/2025",
+      "porcentaje": 5
+    }
+  ]
+}]
