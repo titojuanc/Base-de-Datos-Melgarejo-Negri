@@ -1,0 +1,46 @@
+[{
+  "_id": {
+    "$oid": "68dfd92b9151ad69575256f0"
+  },
+  "nombre": "Carlos",
+  "apellido": "Martínez",
+  "mail": "cmartinez@mail.com",
+  "clave": "cm123",
+  "direcciones": [
+    {
+      "calle": "Av. Triunvirato 345",
+      "ciudad": "CABA",
+      "codigo_postal": 1419,
+      "provincia": "Buenos Aires"
+    },
+    {
+      "calle": "Honorio Senet 1490",
+      "ciudad": "San Martin",
+      "codigo_postal": 1419,
+      "provincia": "Buenos Aires"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68dfdb489151ad69575256f1"
+  },
+  "nombre": "Alma",
+  "apellido": "Cerati",
+  "mail": "almasoda@mail.com",
+  "clave": "gusteamo",
+  "direcciones": [
+    {
+      "calle": "Arroyito 234",
+      "ciudad": "Rosario",
+      "codigo_postal": 4367,
+      "provincia": "Córdoba"
+    },
+    {
+      "calle": "Gualeguaychú 3322",
+      "ciudad": "SFVC",
+      "codigo_postal": 5600,
+      "provincia": "Catamarca"
+    }
+  ]
+}]

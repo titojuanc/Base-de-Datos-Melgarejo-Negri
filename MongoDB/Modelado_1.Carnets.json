@@ -1,0 +1,18 @@
+[{
+  "_id": {
+    "$oid": "68dfd6839151ad69575256ea"
+  },
+  "empleado_id": 1,
+  "numero_serie": 1,
+  "fecha_emision": "2020-04-01",
+  "fecha_vencimiento": "2026-04-01"
+},
+{
+  "_id": {
+    "$oid": "68dfd7089151ad69575256eb"
+  },
+  "empleado_id": 2,
+  "numero_serie": 2,
+  "fecha_emision": "2022-04-03",
+  "fecha_vencimiento": "2028-04-03"
+}]

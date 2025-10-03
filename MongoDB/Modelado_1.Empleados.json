@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "68dfd45d9151ad69575256e1"
+  },
+  "nombre": "María",
+  "apellido": "López",
+  "mail": "marialopez@mail.com",
+  "fecha_nacimiento": "1996-10-05",
+  "puesto": "gerente",
+  "empleado_id": 1
+},
+{
+  "_id": {
+    "$oid": "68dfd60e9151ad69575256e2"
+  },
+  "nombre": "Lucía",
+  "apellido": "Palmer",
+  "mail": "lupa@mail.com",
+  "fecha_nacimiento": "1999-12-18",
+  "puesto": "desarrolladora_junior",
+  "empleado_id": 2
+}]

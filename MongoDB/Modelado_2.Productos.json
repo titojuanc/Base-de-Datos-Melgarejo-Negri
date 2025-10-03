@@ -1,0 +1,54 @@
+[{
+  "_id": {
+    "$oid": "68dfdfc29151ad69575256ff"
+  },
+  "id_producto": 1,
+  "nombre": "Arroz",
+  "precio": 500,
+  "detalles": "Detalles para rellenar"
+},
+{
+  "_id": {
+    "$oid": "68dfdfc29151ad6957525700"
+  },
+  "id_producto": 2,
+  "nombre": "Fideos",
+  "precio": 750,
+  "detalles": "Pasta de trigo duro, paquete de 500g"
+},
+{
+  "_id": {
+    "$oid": "68dfdfc29151ad6957525701"
+  },
+  "id_producto": 3,
+  "nombre": "Aceite",
+  "precio": 1800,
+  "detalles": "Aceite de girasol, botella de 1L"
+},
+{
+  "_id": {
+    "$oid": "68dfdfc29151ad6957525702"
+  },
+  "id_producto": 4,
+  "nombre": "Azúcar",
+  "precio": 950,
+  "detalles": "Azúcar blanca refinada, paquete de 1kg"
+},
+{
+  "_id": {
+    "$oid": "68dfdfc29151ad6957525703"
+  },
+  "id_producto": 5,
+  "nombre": "Sal",
+  "precio": 400,
+  "detalles": "Sal fina comestible, paquete de 500g"
+},
+{
+  "_id": {
+    "$oid": "68dfdfc29151ad6957525704"
+  },
+  "id_producto": 6,
+  "nombre": "Harina",
+  "precio": 600,
+  "detalles": "Harina de trigo 000, paquete de 1kg"
+}]
