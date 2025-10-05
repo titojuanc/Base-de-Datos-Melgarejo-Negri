@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "random3"
+  },
+  "profesor_id": 1,
+  "nombre": "Alberto",
+  "apellido": "García",
+  "email": "alberto.garcia@example.com",
+  "titulo": "Licenciado en Matemáticas",
+  "materia_ids": [1]
+},
+{
+  "_id": {
+    "$oid": "random4"
+  },
+  "profesor_id": 2,
+  "nombre": "Estevan",
+  "apellido": "Fernandez",
+  "email": "estevan.fernandez@example.com",
+  "titulo": "Lenguaje y Literatura",
+  "materia_ids": [2]
+}]

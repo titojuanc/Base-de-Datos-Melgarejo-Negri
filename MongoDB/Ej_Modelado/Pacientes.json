@@ -1,0 +1,59 @@
+[{
+  "_id": {
+    "$oid": "random1"
+  },
+  "nombre": "Ana",
+  "apellido": "García",
+  "dni": "12345678A",
+  "fecha_nacimiento": "1985-05-15",
+  "telefono": "+34123456789",
+  "historia_clinica": {
+    "numero_historia": "HC-2024-001",
+    "fecha_inicio": "2020-03-10",
+    "observaciones_generales": "Paciente con alergias estacionales",
+    "registros_medicos": [
+      {
+        "fecha_consulta": "2024-01-15",
+        "diagnostico": "Gripe estacional",
+        "tratamiento": "Reposo y paracetamol",
+        "medico": "Dr. Rodríguez" //Se podría agregregar un objeto médico
+      },
+      {
+        "fecha_consulta": "2024-03-20",
+        "diagnostico": "Control rutinario",
+        "tratamiento": "Ninguno",
+        "medico": "Dra. Martínez"
+      }
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "random2"
+  },
+  "nombre": "Luis",
+  "apellido": "Fernández",
+  "dni": "87654321B",
+  "fecha_nacimiento": "1990-11-30",
+  "telefono": "+34987654321",
+  "historia_clinica": {
+    "numero_historia": "HC-2024-002",
+    "fecha_inicio": "2018-07-22",
+    "observaciones_generales": "Paciente diabético tipo 2",
+    "registros_medicos": [
+      {
+        "fecha_consulta": "2024-02-10",
+        "diagnostico": "Control de diabetes",
+        "tratamiento": "Ajuste de medicación",
+        "medico": "Dr. López"
+      },
+      {
+        "fecha_consulta": "2024-04-05",
+        "diagnostico": "Revisión general",
+        "tratamiento": "Ninguno",
+        "medico": "Dra. Gómez"
+      }
+    ]
+  }
+}]
+

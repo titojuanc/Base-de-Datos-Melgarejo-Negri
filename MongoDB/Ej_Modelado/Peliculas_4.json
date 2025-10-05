@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "random1"
+  },
+  "pelicula_id": 1,
+  "titulo": "Hola",
+  "anio": "2020",
+  "genero": "comedia",
+  "duracion": 130,
+  "actores": [
+  {"actor_id": 2}	
+]
+},
+{
+  "_id": {
+    "$oid": "random2"
+  },
+  "pelicula_id": 2,
+  "titulo": "Chau",
+  "anio": "2023",
+  "genero": "comedia",
+  "duracion": 125,
+  "actores": [
+  {"actor_id": 1}	
+]
+}]

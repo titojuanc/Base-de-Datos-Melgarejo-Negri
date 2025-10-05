@@ -1,0 +1,18 @@
+[{
+  "_id": {
+    "$oid": "random1"
+  },
+  "materia_id": 1,
+  "nombre": "Lengua",
+  "horas_semanales": 8,
+  "profesor_ids": [2]
+},
+{
+  "_id": {
+    "$oid": "random2"
+  },
+  "materia_id": 2,
+  "nombre": "Matemáticas",
+  "horas_semanales": 6,
+  "profesor_ids": [1]
+}]

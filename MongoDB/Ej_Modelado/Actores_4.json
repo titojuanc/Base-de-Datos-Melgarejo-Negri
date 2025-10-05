@@ -1,0 +1,20 @@
+[{
+  "_id": {
+    "$oid": "random3"
+  },
+  "actor_id": 1,
+  "nombre": "Sergio",
+  "apellido": "Gonzales",
+  "nacimiento": "2000/01/01",
+  "nacionalidad": "Mexico"
+},
+{
+  "_id": {
+    "$oid": "random4"
+  },
+  "actor_id": 2,
+  "nombre": "Maitena",
+  "apellido": "Leaver",
+  "nacimiento": "2002/10/10",
+  "nacionalidad": "Cuba"
+}]
