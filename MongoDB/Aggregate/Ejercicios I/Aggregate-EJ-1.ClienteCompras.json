@@ -35,7 +35,7 @@
       "fecha": "2023/01/01",
       "productos: ": [
         {
-          "id_producto": 2,
+          "id_producto": 10,
           "descripcion": "chau",
           "precio": 25,
           "cantidad": 2
@@ -54,7 +54,7 @@
   "apellido": "Perez",
   "compras": [
     {
-      "id_compra": 3,
+      "id_compra": 4,
       "fecha": "2024/09/09",
       "productos": [
         {
@@ -66,7 +66,7 @@
       ]
     },
     {
-      "id_compra": 4,
+      "id_compra": 5,
       "fecha": "2024/11/07",
       "productos": [
         {
@@ -89,7 +89,7 @@
   "apellido": "Piruela",
   "compras": [
     {
-      "id_compra": 5,
+      "id_compra": 6,
       "fecha": "2023/09/09",
       "productos": [
         {
@@ -101,7 +101,7 @@
       ]
     },
     {
-      "id_compra": 6,
+      "id_compra": 7,
       "fecha": "2023/11/07",
       "productos": [
         {
@@ -109,6 +109,18 @@
           "descripcion": "Banana",
           "precio": 9,
           "cantidad": 10
+        }
+      ]
+    },
+    {
+      "id_compra": 9,
+      "fecha": "2023/09/09",
+      "productos": [
+        {
+          "id_producto": 5,
+          "descripcion": "Pera",
+          "precio": 8,
+          "cantidad": 7
         }
       ]
     }
