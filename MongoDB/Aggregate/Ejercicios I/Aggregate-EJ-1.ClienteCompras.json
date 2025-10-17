@@ -1,0 +1,117 @@
+[{
+  "_id": {
+    "$oid": "68f22378312e707ab3725c8a"
+  },
+  "DNI": 12345678,
+  "nombre": "Juan",
+  "apellido": "Gonzalez",
+  "compras": [
+    {
+      "id_compra": 1,
+      "fecha": "2024/10/10",
+      "productos": [
+        {
+          "id_producto": 1,
+          "descripcion": "hola",
+          "precio": 20,
+          "cantidad": 10
+        }
+      ]
+    },
+    {
+      "id_compra": 2,
+      "fecha": "2024/11/10",
+      "productos": [
+        {
+          "id_producto": 2,
+          "descripcion": "chau",
+          "precio": 25,
+          "cantidad": 13
+        }
+      ]
+    },
+    {
+      "id_compra": 3,
+      "fecha": "2023/01/01",
+      "productos: ": [
+        {
+          "id_producto": 2,
+          "descripcion": "chau",
+          "precio": 25,
+          "cantidad": 2
+        }
+      ]
+    }
+  ],
+  "edad": 10
+},
+{
+  "_id": {
+    "$oid": "68f22790312e707ab3725c8b"
+  },
+  "DNI": 87654321,
+  "nombre": "Pablo",
+  "apellido": "Perez",
+  "compras": [
+    {
+      "id_compra": 3,
+      "fecha": "2024/09/09",
+      "productos": [
+        {
+          "id_producto": 3,
+          "descripcion": "Hasta luego",
+          "precio": 45,
+          "cantidad": 2
+        }
+      ]
+    },
+    {
+      "id_compra": 4,
+      "fecha": "2024/11/07",
+      "productos": [
+        {
+          "id_producto": 4,
+          "descripcion": "Manzana",
+          "precio": 5,
+          "cantidad": 90
+        }
+      ]
+    }
+  ],
+  "edad": 20
+},
+{
+  "_id": {
+    "$oid": "68f22840312e707ab3725c8c"
+  },
+  "DNI": 56784321,
+  "nombre": "Ernesto",
+  "apellido": "Piruela",
+  "compras": [
+    {
+      "id_compra": 5,
+      "fecha": "2023/09/09",
+      "productos": [
+        {
+          "id_producto": 5,
+          "descripcion": "Pera",
+          "precio": 8,
+          "cantidad": 7
+        }
+      ]
+    },
+    {
+      "id_compra": 6,
+      "fecha": "2023/11/07",
+      "productos": [
+        {
+          "id_producto": 6,
+          "descripcion": "Banana",
+          "precio": 9,
+          "cantidad": 10
+        }
+      ]
+    }
+  ],
+  "edad": 30
+}]
