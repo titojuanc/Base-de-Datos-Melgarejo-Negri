@@ -1,0 +1,12 @@
+/*1*/
+db.ClienteCompras.aggregate([{$group : {_id:null, promedio_edad : {$avg : "$edad"}}}])
+
+/*2*/
+db.ClienteCompras.aggregate([{$unwind : "$compras"}, {$unwind : "$compras.productos"},{$group : {_id:"$compras.productos.id_producto", suma : {$sum : "$compras.productos.cantidad"}}}])
+
+/*3*/
+db.ClienteCompras.aggregate([{$unwind : "$compras"}, {$unwind : "$compras.productos"}, {$group : {_id : "$DNI", total : {$sum : {$multiply : ["$compras.productos.precio", "$compras.productos.cantidad"]}}}}])
+
+/*4*/
+db.ClienteCompras.aggregate([{$project : {DNI : 1, total_compras : {$size : "$compras"}}}, {$match : {total_compras: {$gt : 2}}}])
+
