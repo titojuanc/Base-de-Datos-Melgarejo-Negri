@@ -10,3 +10,71 @@ db.ClienteCompras.aggregate([{$unwind : "$compras"}, {$unwind : "$compras.produc
 /*4*/
 db.ClienteCompras.aggregate([{$project : {DNI : 1, total_compras : {$size : "$compras"}}}, {$match : {total_compras: {$gt : 2}}}])
 
+/*5*/
+db.ClienteCompras.aggregate([
+  {$project: {
+    nombre: "$nombre", cantidad_de_compras: {$size: "$compras"}
+  }},
+  {$sort: {
+  	  "compras": 1
+  }},
+  {$limit: 
+    1
+  }
+])
+
+/*6*/
+db.ClienteCompras.aggregate([
+  {$unwind: "$compras"},
+  {$project: {
+		
+    "compras.id_compra": 1, promedio_cant: {$avg: "$compras.productos.cantidad"}
+  	}
+  }
+])
+
+/*7*/
+db.ClienteCompras.aggregate([
+  {$unwind: "$compras"},
+  {$unwind: "$compras.productos"},
+  {$group: {
+    _id: "$compras.productos.descripcion", apariciones:  {$count:{}}
+  	}
+  }
+])
+
+/*8*/
+db.ClienteCompras.aggregate([
+  {$unwind: "$compras"},
+  {$unwind: "$compras.productos"},
+  {$addFields: {
+    "compras.fechaFormateada": {
+      $dateToString: {
+        format: "%Y/%m/%d",
+        date: new Date()
+      }
+    }
+  }},
+  {$match: {
+   	"compras.fecha": "compras.fechaFormateada"
+  	}
+  },
+  {$group: {
+    _id: "$compras.fecha",
+    fecha: {$first: "$compras.fecha"},
+    total : {$sum : {$multiply : ["$compras.productos.precio", "$compras.productos.cantidad"]}}
+  	}
+  }
+])
+
+/*9*/
+db.ClienteCompras.aggregate([
+  {$unwind: "$compras"},
+  {$unwind: "$compras.productos"},
+  {$group: {
+    _id: "$compras.id_compra",
+    mayor_cant: {$max: "$compras.productos.cantidad"},
+    menor_cant: {$min: "$compras.productos.cantidad"}
+  	}
+  }
+])
