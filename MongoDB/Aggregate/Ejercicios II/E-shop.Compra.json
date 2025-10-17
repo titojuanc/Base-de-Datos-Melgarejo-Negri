@@ -1,0 +1,155 @@
+[{
+  "_id": {
+    "$oid": "68f224c78ecb067a2cd640b5"
+  },
+  "id_compra": 1,
+  "id_cliente": 1,
+  "fecha": "03-07-2024",
+  "productos": [
+    {
+      "nombre": "Arroz",
+      "cantidad": 3,
+      "precio_unitario": 400
+    },
+    {
+      "nombre": "Pollo",
+      "cantidad": 1,
+      "precio_unitario": 800
+    },
+    {
+      "nombre": "Miel",
+      "cantidad": 1,
+      "precio_unitario": 500
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f224f98ecb067a2cd640b6"
+  },
+  "id_compra": 2,
+  "id_cliente": 2,
+  "fecha": "03-07-2024",
+  "productos": [
+    {
+      "nombre": "Carne",
+      "cantidad": 4,
+      "precio_unitario": 100
+    },
+    {
+      "nombre": "Milanesa",
+      "cantidad": 7,
+      "precio_unitario": 200
+    },
+    {
+      "nombre": "Zanahoria",
+      "cantidad": 2,
+      "precio_unitario": 800
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f2251f8ecb067a2cd640b7"
+  },
+  "id_compra": 3,
+  "id_cliente": 3,
+  "fecha": "03-07-2024",
+  "productos": [
+    {
+      "nombre": "Carne",
+      "cantidad": 4,
+      "precio_unitario": 100
+    },
+    {
+      "nombre": "Arroz",
+      "cantidad": 1,
+      "precio_unitario": 400
+    },
+    {
+      "nombre": "Pan",
+      "cantidad": 5,
+      "precio_unitario": 125
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f2253e8ecb067a2cd640b8"
+  },
+  "id_compra": 4,
+  "id_cliente": 1,
+  "fecha": "04-07-2024",
+  "productos": [
+    {
+      "nombre": "Carne",
+      "cantidad": 4,
+      "precio_unitario": 100
+    },
+    {
+      "nombre": "Fideos",
+      "cantidad": 2,
+      "precio_unitario": 350
+    },
+    {
+      "nombre": "Pan",
+      "cantidad": 5,
+      "precio_unitario": 125
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f225678ecb067a2cd640b9"
+  },
+  "id_compra": 5,
+  "id_cliente": 2,
+  "fecha": "04-07-2024",
+  "productos": [
+    {
+      "nombre": "Milanesa",
+      "cantidad": 3,
+      "precio_unitario": 225
+    },
+    {
+      "nombre": "Pan",
+      "cantidad": 1,
+      "precio_unitario": 350
+    },
+    {
+      "nombre": "Agua",
+      "cantidad": 10,
+      "precio_unitario": 200
+    },
+    {
+      "cantidad": 1,
+      "precio_unitario": 5000,
+      "nombre": "Xbox"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "68f225ac8ecb067a2cd640ba"
+  },
+  "id_compra": 6,
+  "id_cliente": 3,
+  "fecha": "04-07-2024",
+  "productos": [
+    {
+      "nombre": "Harina",
+      "cantidad": 5,
+      "precio_unitario": 400
+    },
+    {
+      "nombre": "Aspirina",
+      "cantidad": 1,
+      "precio_unitario": 900
+    },
+    {
+      "nombre": "Maquillaje",
+      "cantidad": 2,
+      "precio_unitario": 1500
+    }
+  ]
+}]

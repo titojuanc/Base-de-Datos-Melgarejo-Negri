@@ -1,0 +1,24 @@
+[{
+  "_id": {
+    "$oid": "68f2227b8ecb067a2cd640b2"
+  },
+  "id_cliente": 1,
+  "nombre": "Carlos",
+  "apellido": "Menossi"
+},
+{
+  "_id": {
+    "$oid": "68f225be8ecb067a2cd640bc"
+  },
+  "id_cliente": 2,
+  "nombre": "Marìa",
+  "apellido": "Cielas"
+},
+{
+  "_id": {
+    "$oid": "68f225d28ecb067a2cd640bd"
+  },
+  "id_cliente": 3,
+  "nombre": "Federico",
+  "apellido": "Valverde"
+}]
