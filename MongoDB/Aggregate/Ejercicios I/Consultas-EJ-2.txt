@@ -1,0 +1,92 @@
+/*  AGGREGATE II  */
+
+/*1*/
+db.Cliente.aggregate([
+  {$lookup: {
+    from: "Compra",
+    localField: "id_cliente",
+    foreignField: "id_cliente",
+    as: "compras"
+  	}
+  },
+  {$project: {
+    _id:0, "id_usuario": 1, "compras": 1
+  	}
+  }
+])
+
+/*2*/
+
+db.Cliente.aggregate([
+  {$lookup: {
+    from: "Compra",
+    localField: "id_cliente",
+    foreignField: "id_cliente",
+    as: "compras"
+  	}
+  },
+  {$unwind:
+    "$compras"
+  },
+  {$unwind:
+  	"$compras.productos"  
+  },
+  {$group: {
+    _id: '$id_cliente', nombre: {$first: "$nombre"}, apellido: {$first: "$apellido"},  monto_total: {$sum: {$multiply: ["$compras.productos.cantidad", "$compras.productos.precio_unitario"]}}
+  	}
+  }
+])
+
+/*3*/
+
+db.Cliente.aggregate([
+  {$lookup: {
+    from: "Compra",
+    localField: "id_cliente",
+    foreignField: "id_cliente",
+    as: "compras"
+  	}
+  },
+  {$unwind:
+    "$compras"
+  },
+  {$unwind:
+  	"$compras.productos"  
+  },
+  {$group: {
+    _id: '$compras.id_compra',
+    monto_total: {$sum: {$multiply: ["$compras.productos.cantidad", "$compras.productos.precio_unitario"]}},
+    id_cliente: {$first: "$id_cliente"}
+  	}
+  },
+  {$group: {
+    _id: '$id_cliente',
+    monto_avg: {$avg: "$monto_total"},
+    monto_max: {$max: "$monto_total"},
+    monto_min: {$min: "$monto_total"} 
+    }
+  }
+])
+
+/*4*/
+
+db.Compra.aggregate([
+  {$lookup: {
+    from: "Cliente",
+    localField: "id_cliente",
+    foreignField: "id_cliente",
+    as: "cliente"
+  	}
+  },
+  {$project: {
+    id_compra: "$id_compra",
+    nombre: "$cliente.nombre",
+    cantidad_de_productos: {$size: "$productos"}
+  	}
+  },
+  {$sort: {
+    cantidad_de_productos: -1		
+  	}
+  },
+  {$limit: 1}
+])
