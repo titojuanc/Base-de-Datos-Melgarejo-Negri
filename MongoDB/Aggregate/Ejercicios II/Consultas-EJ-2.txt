@@ -90,3 +90,112 @@ db.Compra.aggregate([
   },
   {$limit: 1}
 ])
+
+/*5*/
+db.Cliente.aggregate([{$lookup : {from : "Compra", localField : "id_compra", foreignField : "id_compra", as: "compras"}},{$project : {id_cliente : 1, nombre: 1, apellido: 1, total_compras : {$size : "$compras"}}}, {$match : {total_compras : {$gt: 2}}}])
+
+/*6*/
+db.Compras.aggregate([
+  { $unwind: "$productos" },
+  {
+    $group: {
+      _id: {
+        year: { $year: "$fecha" },
+        month: { $month: "$fecha" }
+      },
+      total_unidades: { $sum: "$productos.cantidad" }
+    }
+  },
+  {
+    $sort: { "_id.year": 1, "_id.month": 1 }
+  }
+])
+
+
+/*7*/
+db.Cliente.aggregate([
+  {
+    $lookup: {
+      from: "Compra",
+      localField: "id_cliente",
+      foreignField: "id_cliente",
+      as: "compras"
+    }
+  },
+  {
+    $unwind: "$compras"
+  },
+  {
+    $addFields: {
+      "compras.fecha_date": {
+        $dateFromString: {
+          dateString: "$compras.fecha",
+          format: "%d-%m-%Y"  // Para formato "15-01-2024"
+        }
+      }
+    }
+  },
+  {
+    $group: {
+      _id: {
+        id_cliente: "$id_cliente",
+        mes: { $dateToString: { format: "%Y-%m", date: "$compras.fecha_date" } }
+      },
+      cantidad_compras: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      id_cliente: "$_id.id_cliente",
+      mes: "$_id.mes",
+      cantidad_compras: 1
+    }
+  }
+])
+
+/*8*/
+db.Cliente.aggregate([
+  {
+    $lookup: {
+      from: "Compra",
+      localField: "id_cliente",
+      foreignField: "id_cliente",
+      as: "compras"
+    }
+  },
+  {
+    $unwind: "$compras"
+  },
+  {
+    $unwind: "$compras.productos"
+  },
+  {
+    $addFields: {
+      "compras.fecha_date": {
+        $dateFromString: {
+          dateString: "$compras.fecha",
+          format: "%d-%m-%Y"
+        }
+      }
+    }
+  },
+  {
+    $group: {
+      _id: {
+        año: { $dateToString: { format: "%Y", date: "$compras.fecha_date" } }
+      },
+      total_ganancias: { 
+        $sum: { 
+          $multiply: ["$compras.productos.precio_unitario", "$compras.productos.cantidad"] 
+        } 
+      }
+    }
+  },
+  {
+    $sort: { total_ganancias: -1 }
+  },
+  {
+    $limit: 1
+  }
+])
