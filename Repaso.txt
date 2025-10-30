@@ -1,0 +1,82 @@
+/*1*/
+db.Alumnos.aggregate([{$project: {"nombre": 1, "cant_materias": {$size : "$materias"}}}])
+/*2*/
+db.Alumnos.aggregate([{$unwind : "$materias"}, {$unwind: "$materias.examenes"}, {$match: {"materias.examenes.fecha": {$regex : "^2025"},"materias.examenes.calificacion": {$lt: 6}}}, {$group : {_id: {idMateria: "$materias.idMateria",nombre: "$materias.nombre"},desaprobados: {$sum:1}}},{$sort : {desaprobados: -1}}, {$limit: 1}])
+
+/*3*/
+db.Alumnos.updateMany(
+{
+"materias.examenes.fecha" : {$in : ["2025-10-04","2025-10-05"]}
+},
+{
+$set : {"materias.$[].examenes.$[ex].fecha": new Date()}
+},
+{
+arrayFilters: [
+{
+"ex.fecha" : {$in : ["2025-10-04","2025-10-05"]}
+}
+]
+}
+)
+
+/*4*/
+
+igual que el uno
+
+/*5*/
+db.Alumnos.aggregate([
+{
+$project : {
+"cant_materias" : {$size : "$materias"}
+}
+},
+{
+$group : {
+_id:null,
+"prom" : {$avg: "$cant_materias"}
+}
+}
+])
+
+/*6*/
+db.Alumnos.deleteMany({
+"materias": {$size : 0}
+})
+
+/*7*/
+db.Alumnos.aggregate([
+{$unwind: "$materias"},
+{$unwind: "$materias.examenes"},
+{$match: 
+	{
+	"materias.examenes.tema" : "Combinatoria",
+	"materias.examenes.calificacion" : {$gte: 6}
+	}
+},
+{$project:
+	{
+	"nombre": 1,
+	"apellido": 1,
+	"idAlumno": 1
+	}
+}
+])
+
+
+/*8*/
+db.Alumnos.aggregate([
+{$unwind: "$materias"},
+{$unwind: "$materias.examenes"},
+{$match: 
+	{
+	"materias.examenes.idExamen": 2
+	}
+},
+{$group:
+	{
+	"_id": null,
+	"cantidadAlumnos": {$sum: 1}
+	}
+}
+])
